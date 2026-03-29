@@ -3,13 +3,17 @@ spring:
     problemdetails:
       enabled: true
 
-  mongodb:
-    host: localhost
-    port: 13500
-    database: eca
-    username: root
-    password: mongodb
-    authentication-database: admin
+  spring:
+    mongodb:
+      # Change 'localhost' to your actual Firestore endpoint
+      host: 39a1c3d3-36bb-4887-a87e-7f4bdbbd750f.asia-southeast1.firestore.goog
+      port: 443
+      database: db-capstone
+      username: root
+      password: YOUR_PASSWORD
+      authentication-database: admin
+      # This part is critical for cloud connection security
+      additional-params: tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false
 
 server:
   port: 0
@@ -17,3 +21,12 @@ server:
 eureka:
   instance:
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
+
+#  mongodb:
+#    host: localhost
+#    port: 13500
+#    database: eca
+#    username: root
+#    password: mongodb
+#    authentication-database: admin
