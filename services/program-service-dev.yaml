@@ -1,28 +1,8 @@
-spring:
-  mvc:
-    problemdetails:
-      enabled: true
-
-  spring:
-    mongodb:
-      # Change 'localhost' to your actual Firestore endpoint
-      host: 39a1c3d3-36bb-4887-a87e-7f4bdbbd750f.asia-southeast1.firestore.goog
-      port: 443
-      database: db-capstone
-      username: root
-      password: YOUR_PASSWORD
-      authentication-database: admin
-      # This part is critical for cloud connection security
-      additional-params: tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false
-
-server:
-  port: 0
-
-eureka:
-  instance:
-    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-
-
+#spring:
+#  mvc:
+#    problemdetails:
+#      enabled: true
+#
 #  mongodb:
 #    host: localhost
 #    port: 13500
@@ -30,3 +10,28 @@ eureka:
 #    username: root
 #    password: mongodb
 #    authentication-database: admin
+#
+#server:
+#  port: 0
+#
+#eureka:
+#  instance:
+#    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
+
+spring:
+  mvc:
+    problemdetails:
+      enabled: true
+
+  data:
+    mongodb:
+      # Replace YOUR_PASSWORD with bN9YnKmbvdOnoERfmzdG3ePr1O1sRt5sn72WMtHwp-zuwi7D
+      uri: mongodb://root:bN9YnKmbvdOnoERfmzdG3ePr1O1sRt5sn72WMtHwp-zuwi7D@39a1c3d3-36bb-4887-a87e-7f4bdbbd750f.asia-southeast1.firestore.goog:443/db-capstone?tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false&maxIdleTimeMS=15000&authSource=admin
+
+server:
+  port: 0
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
